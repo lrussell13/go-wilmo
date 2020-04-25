@@ -1,0 +1,34 @@
+.event-card-container {
+  margin-top: 8px;
+}
+
+.date-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-selector .react-date-picker__inputGroup{
+  display: none;
+}
+
+.date-selector .react-date-picker__wrapper {
+  border: 0px!important;
+}
+
+.footer{
+  padding:20px;
+}
+.next, .prev {
+  color: #2497AC;
+  font-weight: 900;
+}
+.next:hover, .prev:hover {
+  cursor: pointer;
+}
+.next {
+  float: right;
+}
+.prev {
+  float: left;
+}

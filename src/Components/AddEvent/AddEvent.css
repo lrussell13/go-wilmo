@@ -1,0 +1,146 @@
+#add-event-form input[type="text"] {
+  border: solid 2px lightgrey;
+  font-size: 18px;
+  padding: 8px;
+  width: 100%;
+  box-sizing : border-box;
+  margin-bottom: 12px;
+}
+
+#add-event-form input[type="checkbox"] {
+  width: 41px;
+}
+
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  margin-right: 18px;
+  align-self: flex-start;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.check-container  input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check-container:hover input ~ .checkmark {
+  background-color: white;
+  border: 2px solid lightgrey;
+}
+
+.check-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.check-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.recurring-basis-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: solid 2px lightgray;
+  background-color: white;
+}
+
+#price {
+  width: 90%;
+}
+
+#add-event-form {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-event h1 {
+  text-align: center;
+}
+
+.react-date-picker {
+  width: 100%;
+}
+
+.react-time-picker {
+  align-self: flex-start;
+}
+
+#add-event-form .react-date-picker__wrapper {
+  border: solid 2px lightgrey;
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+}
+
+#add-event-form .react-date-picker__inputGroup__input {
+  max-width: 100%;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+}
+
+#add-event-form .react-time-picker__wrapper {
+  border: solid 2px lightgrey;
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+}
+
+#add-event-form .react-time-picker__inputGroup__input {
+  max-width: 100%;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+}
+
+.recurring-container {
+}
