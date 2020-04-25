@@ -70,7 +70,7 @@ class AddEvent extends React.Component {
               <span class="checkmark"></span>
             </label>
           </div>}
-          <label className="dollar-sign">$<input id="price" type="text"  placeholder="Price" name="price" value={this.state.price} onChange={(e) => this.handleChange(e)}/></label>
+          <input type="text"  placeholder="Price" name="price" value={this.state.price} onChange={(e) => this.handleChange(e)}/>
       </form>
       </div>
     );
