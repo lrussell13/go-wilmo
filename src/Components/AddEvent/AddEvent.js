@@ -1,45 +1,59 @@
 import React from 'react';
 import './AddEvent.css'
 import DatePicker from 'react-date-picker';
-import TimePicker from 'react-time-picker';
+import Moment from 'moment';
+import TimePicker from 'rc-time-picker';
+import EventCard from '../EventCard/EventCard'
+import 'rc-time-picker/assets/index.css';
 
 class AddEvent extends React.Component {
   state = {
-    price: '',
-    name: '',
-    location: '',
-    time: new Date(),
-    date: new Date(),
-    upvotes: 30,
-    links: 'www.here.com',
-    description: 'lha jkahsdj asjkhd jaksh jskhd kjhakjhdjksahd sajkhd asjd',
-    image: 'http://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg',
-    recurring: false,
-    recurringBasis: 0,
+    event: {
+      price: '',
+      name: '',
+      location: '',
+      time: new Moment(),
+      date: new Date(),
+      upvotes: 30,
+      link: '',
+      description: '',
+      image: 'http://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg',
+      recurring: false,
+      recurringBasis: 0
+    }
   }
 
   handleChange(e){
+    let event = this.state.event;
+    event[e.target.name] = e.target.value
     this.setState({
-        [e.target.name]: e.target.value
+        event
     });
   }
 
   handleDateChange = date => {
-    this.setState({date});
+    let event = this.state.event;
+    event.date = date
+    this.setState({event});
   };
 
   handleTimeChange = time => {
-    this.setState({time});
+    let event = this.state.event;
+    event.time = time
+    this.setState({event});
+    console.log(event)
   };
 
   handleRecurringBasisChange = e => {
-    let newVal = e.target.value;
-    this.setState({ recurringBasis: newVal });
+    let event = this.state.event;
+    event.recurringBasis = e.target.value;
+    this.setState({ event });
   };
 
   handleRecurringChange = e => {
-    let newVal = e.target.checked;
-    this.setState({ recurring: newVal });
+    let event = this.state.event;
+    event.recurring = e.target.checked;
+    this.setState({ event });
   };
 
   render(){
@@ -47,15 +61,15 @@ class AddEvent extends React.Component {
       <div className="add-event">
       <h1>Add an Event</h1>
       <form id="add-event-form">
-        <input type="text"  placeholder="Event Name" name="name" value={this.state.name} onChange={(e) => this.handleChange(e)}/>
-        <input type="text"  placeholder="Location" name="location" value={this.state.location} onChange={(e) => this.handleChange(e)}/>
-        <DatePicker clearIcon={null} minDate={new Date()} name="date" onChange={this.handleDateChange} value={this.state.date}/>
-        <TimePicker onChange={this.onChange} value={this.state.time} clearIcon={null} disableClock={true}/>
+        <input type="text"  placeholder="Event Name" name="name" value={this.state.event.name} onChange={(e) => this.handleChange(e)}/>
+        <input type="text"  placeholder="Location" name="location" value={this.state.event.location} onChange={(e) => this.handleChange(e)}/>
+        <DatePicker clearIcon={null} minDate={new Date()} name="date" onChange={this.handleDateChange} value={this.state.event.date}/>
+        <TimePicker showSecond={false} use12Hours={true} allowEmpty={false} value={this.state.event.time} onChange={this.handleTimeChange} minuteStep={15}/>
         <label class="check-container">Recurring
-          <input type="checkbox" name="recurring" value={this.state.recurring} onChange={(e) => this.handleRecurringChange(e)}/>
+          <input type="checkbox" name="recurring" value={this.state.event.recurring} onChange={(e) => this.handleRecurringChange(e)}/>
           <span class="checkmark"></span>
         </label>
-        {this.state.recurring &&
+        {this.state.event.recurring &&
           <div className="recurring-basis-container">
             <label class="check-container">Weekly
               <input type="radio" name="recurring-select" value={0} onChange={(e) => this.handleRecurringBasisChange(e)}/>
@@ -70,8 +84,14 @@ class AddEvent extends React.Component {
               <span class="checkmark"></span>
             </label>
           </div>}
-          <input type="text"  placeholder="Price" name="price" value={this.state.price} onChange={(e) => this.handleChange(e)}/>
+          <input type="text"  placeholder="Price" name="price" value={this.state.event.price} onChange={(e) => this.handleChange(e)}/>
+          <input type="text"  placeholder="Useful Link" name="link" value={this.state.event.link} onChange={(e) => this.handleChange(e)}/>
+          <textarea placeholder="Event Description" name="description" rows="4" value={this.state.event.description} onChange={(e) => this.handleChange(e)}></textarea>
+          <button type="submit" className="submit">Submit</button>
       </form>
+        <div class="event-card-container">
+          <EventCard event={this.state.event} time={this.state.event.time.format('LT')}></EventCard>
+        </div>
       </div>
     );
   }

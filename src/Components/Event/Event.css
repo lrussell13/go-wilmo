@@ -1,0 +1,54 @@
+.upvotes-event {
+  background: #2497AC;
+  color: white;
+  font-size: 24px;
+  font-weight: bolder;
+  border: none;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-image-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.event-page {
+  padding: 16px; 
+  margin: 0 auto;
+  max-width: 645px;
+}
+
+.event-image-container img {
+  width: 100%;
+}
+
+.title h1 {
+  margin: 0px;
+  border-bottom: solid 2px grey;
+}
+
+.price {
+  font-size: 32px;
+}
+
+.content-header p {
+  margin: 0px;
+}
+
+.subtitle-container {
+  margin-bottom: 24px;
+}
+
+.subtitle-container .subtitles {
+  display: flex;
+}
+
+.subtitle-container .subtitles .time {
+  margin-left: 12px;
+}

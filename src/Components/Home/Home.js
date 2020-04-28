@@ -94,7 +94,7 @@ class Home extends React.Component {
         </div>
         <div className="event-card-container">
           {this.state.events.map(event => {
-              return <EventCard key={event.id} event={event} />
+              return <EventCard key={event.id} event={event} time={event.time} />
             })}
         </div>
         <footer className="footer">

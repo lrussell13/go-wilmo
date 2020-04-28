@@ -15,7 +15,7 @@ class EventCard extends React.Component {
             <h2>{this.props.event.name}</h2>
             <div className="subtitles">
               <p>○ {this.props.event.location}</p>
-              <p>○ {this.props.event.time}</p>
+              <p>○ {this.props.time}</p>
             </div>
             <div>
               <button className="upvotes">{this.props.event.upvotes} ^</button>
