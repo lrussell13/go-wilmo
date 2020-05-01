@@ -3,7 +3,8 @@ import './AddEvent.css'
 import DatePicker from 'react-date-picker';
 import Moment from 'moment';
 import TimePicker from 'rc-time-picker';
-import EventCard from '../EventCard/EventCard'
+import EventCard from '../EventCard/EventCard';
+import FirebaseService from '../../Services/firebase-service';
 import 'rc-time-picker/assets/index.css';
 
 class AddEvent extends React.Component {
@@ -17,7 +18,7 @@ class AddEvent extends React.Component {
       upvotes: 30,
       link: '',
       description: '',
-      image: 'http://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg',
+      image: '',
       recurring: false,
       recurringBasis: 0
     }
@@ -43,6 +44,17 @@ class AddEvent extends React.Component {
     this.setState({event});
     console.log(event)
   };
+
+  handleImageChange = async e => {
+    let event = this.state.event;
+    FirebaseService.saveImage(e.target.files[0].name, e.target.files[0])
+    .then(path => {
+      console.log(path)
+      event.image = path;
+      this.setState({event});
+      console.log(event)
+    })
+  }
 
   handleRecurringBasisChange = e => {
     let event = this.state.event;
@@ -84,6 +96,7 @@ class AddEvent extends React.Component {
               <span class="checkmark"></span>
             </label>
           </div>}
+          <input type="file" value={this.state.image} name="image" onChange={(e) => this.handleImageChange(e)}/>
           <input type="text"  placeholder="Price" name="price" value={this.state.event.price} onChange={(e) => this.handleChange(e)}/>
           <input type="text"  placeholder="Useful Link" name="link" value={this.state.event.link} onChange={(e) => this.handleChange(e)}/>
           <textarea placeholder="Event Description" name="description" rows="4" value={this.state.event.description} onChange={(e) => this.handleChange(e)}></textarea>

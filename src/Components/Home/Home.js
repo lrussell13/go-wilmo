@@ -33,7 +33,7 @@ class Home extends React.Component {
         upvotes: 30,
         links: 'www.here.com',
         description: 'lha jkahsdj asjkhd jaksh jskhd kjhakjhdjksahd sajkhd asjd',
-        image: 'http://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg'
+        image: 'https://firebasestorage.googleapis.com/v0/b/go-wilmo.appspot.com/o/need-tasks.png?alt=media&token=f173d164-064a-44c0-9032-2477f8d3ee8d'
       }
     ]
   }
