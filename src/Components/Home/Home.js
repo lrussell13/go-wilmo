@@ -26,7 +26,7 @@ class Home extends React.Component {
       {
         id: 2,
         price: 'Free',
-        name: 'Event Name',
+        name: 'Event Name is supperrrr long',
         location: '444 Here Place',
         time: '10:30pm',
         date: '30/10/20',

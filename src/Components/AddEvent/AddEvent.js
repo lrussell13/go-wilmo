@@ -15,7 +15,7 @@ class AddEvent extends React.Component {
       location: '',
       time: new Moment(),
       date: new Date(),
-      upvotes: 30,
+      upvotes: 0,
       link: '',
       description: '',
       image: '',
@@ -45,15 +45,15 @@ class AddEvent extends React.Component {
     console.log(event)
   };
 
-  handleImageChange = async e => {
+  handleImageChange = e => {
     let event = this.state.event;
-    FirebaseService.saveImage(e.target.files[0].name, e.target.files[0])
-    .then(path => {
-      console.log(path)
-      event.image = path;
-      this.setState({event});
-      console.log(event)
-    })
+      if(e.target.files[0].name !== ''){
+        FirebaseService.saveImage(e.target.files[0].name, e.target.files[0])
+      .then(path => {
+        event.image = path;
+        this.setState({event});
+      })
+    }
   }
 
   handleRecurringBasisChange = e => {
@@ -96,15 +96,17 @@ class AddEvent extends React.Component {
               <span class="checkmark"></span>
             </label>
           </div>}
-          <input type="file" value={this.state.image} name="image" onChange={(e) => this.handleImageChange(e)}/>
+          <label htmlFor="image" id="image-label">Display Image:
+            <input placeholder="picture" type="file" id="image" value={this.state.image} name="image" onChange={(e) => this.handleImageChange(e)}/>
+          </label>
           <input type="text"  placeholder="Price" name="price" value={this.state.event.price} onChange={(e) => this.handleChange(e)}/>
           <input type="text"  placeholder="Useful Link" name="link" value={this.state.event.link} onChange={(e) => this.handleChange(e)}/>
           <textarea placeholder="Event Description" name="description" rows="4" value={this.state.event.description} onChange={(e) => this.handleChange(e)}></textarea>
-          <button type="submit" className="submit">Submit</button>
-      </form>
         <div class="event-card-container">
           <EventCard event={this.state.event} time={this.state.event.time.format('LT')}></EventCard>
         </div>
+        <button type="submit" className="submit">Submit</button>
+      </form>
       </div>
     );
   }

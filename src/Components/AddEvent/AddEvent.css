@@ -7,6 +7,37 @@
   margin-bottom: 12px;
 }
 
+#add-event-form input[type="file"] {
+  width: 65%;
+  box-sizing : border-box;
+  margin-left: 16px;
+  font-size: 18px;
+}
+
+#image-label {
+  border: solid 2px lightgrey;
+  font-size: 18px;
+  padding: 8px;
+  width: 65%;
+  box-sizing : border-box;
+  margin-bottom: 12px;
+  color: #777777;
+}
+
+
+::-webkit-file-upload-button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 4px;
+  margin-right: 8px;
+}
+
+#image-label {
+  font-size: 18px;
+  width: 100%;
+}
+
 #add-event-form textarea {
   border: solid 2px lightgrey;
   font-size: 18px;

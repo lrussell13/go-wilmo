@@ -9,9 +9,15 @@
   box-shadow: 4px 6px 12px 0 lightgrey;
 }
 
+.event-card-container {
+  max-width: 600px;
+}
+
 .event-image {
   width: 100%;
   height: 100%;
+  vertical-align: bottom;
+  object-fit: cover;
 }
 
 .event-card-banner {
@@ -47,4 +53,6 @@
   font-weight: bolder;
   margin-top: 24px;
   border: none;
+  margin-left: 8px;
+  margin-bottom: 8px;
 }
