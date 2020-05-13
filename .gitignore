@@ -8,7 +8,7 @@
 # testing
 /coverage
 /config.js
-./config.js
+src/config.js
 
 # production
 /build
