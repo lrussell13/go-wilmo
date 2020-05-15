@@ -1,7 +1,10 @@
 import React from 'react';
 import './Home.css'
+import { Link } from 'react-router-dom'
 import EventCard from '../EventCard/EventCard';
 import DatePicker from 'react-date-picker';
+
+import Header from '../Header/Header';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -88,15 +91,20 @@ class Home extends React.Component {
   render(){
     return (
       <>
+      <Header></Header>
+      <div className="main">
         <div className="date-selector">
-          Wilmington Events { this.getDateString() }
+          <p>
+            Wilmington Events { this.getDateString() }
+          </p>
           <DatePicker clearIcon={null} minDate={new Date()} onChange={this.handleChange} value={this.state.dateSelected}/>
         </div>
         <div className="event-card-container">
           {this.state.events.map(event => {
-              return <EventCard key={event.id} event={event} time={event.time} />
+              return <Link to={`/event/${event.id}`}><EventCard key={event.id} event={event} time={event.time} /></Link>
             })}
         </div>
+      </div>
         <footer className="footer">
             {this.buildPrev()}
             {this.buildNext()}

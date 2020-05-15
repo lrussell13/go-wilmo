@@ -2,6 +2,7 @@ import React from 'react';
 import AuthApiService from '../../Services/auth-api-service';
 import { withRouter } from 'react-router-dom';
 import './Register.css';
+import Header from '../Header/Header';
 
 class Register extends React.Component {
     static defaultProps = {
@@ -29,10 +30,12 @@ class Register extends React.Component {
     render(){
     const { error } = this.state;
     return (
+        <>
+        <Header></Header>
         <div className="register-page">
             <section className="register">
                 <form className="register-form" onSubmit={this.handleSubmit}>
-                    <input id="user_name" placeholder="Username"/>
+                    <input id="email" placeholder="Email" type="email"/>
                     <input id="password" type="password" placeholder="Password"/>
                     <input id="repeat-password" type="password" placeholder="Repeat Password"/>
                     {error && <p className='red error'>{error}</p>}
@@ -40,6 +43,7 @@ class Register extends React.Component {
                 </form>
             </section>
         </div>
+        </>
     );
     }
 }

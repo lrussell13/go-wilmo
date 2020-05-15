@@ -4,6 +4,7 @@ import AuthApiService from '../../Services/auth-api-service';
 //import config from '../../config';
 import { withRouter, Link } from 'react-router-dom';
 import './Login.css';
+import Header from '../Header/Header';
 
 class Login extends React.Component {
     static defaultProps = {
@@ -15,16 +16,16 @@ class Login extends React.Component {
     handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const { user_name, password } = ev.target
+        const { email, password } = ev.target
           AuthApiService.postLogin({
-          user_name: user_name.value,
+          email: email.value,
           password: password.value,
         })
         .then(res => {
-            user_name.value = ''
+            email.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.history.push(`/user`);
+            this.props.history.push(`/`);
         })
         .catch(res => {
             this.setState({ error: res.error })
@@ -35,12 +36,13 @@ class Login extends React.Component {
     const { error } = this.state;
     return (
         <>
+        <Header></Header>
           <section className="login">
               <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
                   <div role='alert'>
                   {error && <p className='red'>{error}</p>}
                   </div>
-                  <input id="user_name" placeholder="Username"/>
+                  <input id="email" placeholder="Email"/>
                   <input id="password" type="password" placeholder="Password"/>
                   <button type="submit" className="login-button">Login</button>
                   <Link to="/register"><div className="register-button">Register</div></Link>

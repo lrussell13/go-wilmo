@@ -1,5 +1,6 @@
 import React from 'react';
 import './Event.css';
+import Header from '../Header/Header';
 
 class Event extends React.Component {
   state = {
@@ -19,6 +20,8 @@ class Event extends React.Component {
 
   render(){
     return (
+      <>
+      <Header></Header>
       <div className="event-page">
         <div className="title">
           <h1>
@@ -49,6 +52,7 @@ class Event extends React.Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

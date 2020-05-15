@@ -6,6 +6,7 @@ import TimePicker from 'rc-time-picker';
 import EventCard from '../EventCard/EventCard';
 import FirebaseService from '../../Services/firebase-service';
 import 'rc-time-picker/assets/index.css';
+import Header from '../Header/Header';
 
 class AddEvent extends React.Component {
   state = {
@@ -70,6 +71,8 @@ class AddEvent extends React.Component {
 
   render(){
     return (
+      <>
+      <Header></Header>
       <div className="add-event">
       <h1>Add an Event</h1>
       <form id="add-event-form">
@@ -108,6 +111,7 @@ class AddEvent extends React.Component {
         <button type="submit" className="submit">Submit</button>
       </form>
       </div>
+      </>
     );
   }
 

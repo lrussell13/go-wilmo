@@ -11,9 +11,9 @@ function App() {
   return (
   <Switch >
     <Route path={"/"} exact render={() => <Home />}/>
-    <Route path={"/Login"} render={() => <Login />}/>
-    <Route path={"/Register"} render={() => <Register />}/>
-    <Route path={"/AddEvent"} render={() => <AddEvent />}/>
+    <Route path={"/login"} render={() => <Login />}/>
+    <Route path={"/register"} render={() => <Register />}/>
+    <Route path={"/add-event"} render={() => <AddEvent />}/>
     <Route path={"/event/:id"} component={(props) => <Event id={props.match.params.id}/> }/>
   </Switch>
   );
