@@ -1,6 +1,6 @@
 .event-card {
-  border: solid 4px #000000;
-  border-radius: 5px;
+  border: solid 5px #303D49;
+  border-radius: 16px;
   width: 95%;
   display: grid;
   grid-template-columns: 55% 45%;
@@ -20,6 +20,7 @@
   height: 100%;
   vertical-align: bottom;
   object-fit: cover;
+  border-radius: 0px 8px 8px 0px;
 }
 
 .event-card-banner {

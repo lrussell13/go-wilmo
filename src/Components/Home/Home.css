@@ -1,11 +1,9 @@
 .main {
   padding-bottom: 24px;
-  border-top: solid 6px#226089;
-  border-bottom: solid 6px#226089;
-  border-left: solid 6px#226089;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  margin-left: 8px;
+  background: url('../../Images/main-bg.svg');
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .event-card-container {
@@ -16,10 +14,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white!important;
+  padding: 16px 0px;
+}
+
+.react-date-picker__calendar-button__icon {
+  stroke: white!important;
 }
 
 .date-selector p {
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .date-selector .react-date-picker__inputGroup{
